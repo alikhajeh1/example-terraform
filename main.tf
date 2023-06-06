@@ -7,6 +7,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "web_app" {
+  count = 3
   ami           = "ami-674cbc1e"
   instance_type = "m5.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
 
