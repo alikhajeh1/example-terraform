@@ -11,7 +11,7 @@ resource "aws_instance" "web_app" {
   instance_type = "m5.8xlarge"             # <<<<< Try changing this to m5.8xlarge to compare the costs
 
   tags = {
-    Environment = "prod"
+    Environment = "production"
     Service = "web-app"
   }
 
