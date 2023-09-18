@@ -12,6 +12,7 @@ resource "aws_instance" "web_app" {
 
   tags = {
     Environment = "prod"
+    Service = "web-app"
   }
 
   root_block_device {
