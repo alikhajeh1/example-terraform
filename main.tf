@@ -8,7 +8,7 @@ provider "aws" {
 
 resource "aws_instance" "web_app" {
   ami           = "ami-674cbc1e"
-  instance_type = "m5.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
+  instance_type = "m3.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
 
   tags = {
     Environment = "production"
@@ -29,9 +29,10 @@ resource "aws_instance" "web_app" {
 
 resource "aws_lambda_function" "hello_world" {
   function_name = "hello_world"
-  role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
+  role          = "arn:aws:lambda:us-east-1:012345678912:resource-id"
   handler       = "exports.test"
   runtime       = "nodejs12.x"
+  filename      = "myfunction.js"
   memory_size   = 1024                      # <<<<< Try changing this to 512 to compare costs
 
   tags = {
