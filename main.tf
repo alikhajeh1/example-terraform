@@ -8,7 +8,7 @@ provider "aws" {
 
 resource "aws_instance" "web_app" {
   ami           = "ami-674cbc1e"
-  instance_type = "m3.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
+  instance_type = "m5.xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
 
   tags = {
     Environment = "production"
@@ -41,3 +41,52 @@ resource "aws_lambda_function" "hello_world" {
   }
 }
 
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "bucket-config" {
+  bucket = aws_s3_bucket.example.id
+
+  rule {
+    id = "log"
+
+    expiration {
+      days = 30
+    }
+  }
+}
+
+resource "aws_launch_template" "foobar" {
+  name_prefix   = "foobar"
+  image_id      = "ami-1a2b3c"
+  instance_type = "t2.micro"
+}
+
+resource "aws_autoscaling_group" "bar" {
+  availability_zones = ["us-east-1a"]
+  desired_capacity   = 1
+  max_size           = 2
+  min_size           = 1
+  mixed_instances_policy {
+    launch_template {
+      launch_template_specification {
+        launch_template_id = aws_launch_template.foobar.id
+      }
+
+      override {
+        instance_requirements {
+          memory_mib {
+            min = 8192M
+            max = 32768M
+          }
+          vcpu_count {
+            min = 4
+            max = 32
+          }
+          instance_generations = ["current"]
+        }
+      }
+    }
+  }
+}
