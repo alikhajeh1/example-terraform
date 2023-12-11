@@ -52,7 +52,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "bucket-config" {
     id = "log"
 
     expiration {
-      days = 30
+      days = 60
     }
   }
 }
@@ -77,7 +77,7 @@ resource "aws_autoscaling_group" "bar" {
       override {
         instance_requirements {
           memory_mib {
-            min = 8192M
+            min = 16384M
             max = 32768M
           }
           vcpu_count {
