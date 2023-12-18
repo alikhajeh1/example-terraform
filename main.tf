@@ -41,3 +41,20 @@ resource "aws_lambda_function" "hello_world" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "logs" {
+  name = "logs"
+}
+
+resource "aws_lambda_function" "hello_world2" {
+  function_name = "hello_world"
+  role          = "arn:aws:lambda:us-east-1:012345678912:resource-id"
+  handler       = "exports.test"
+  runtime       = "nodejs12.x"
+  filename      = "myfunction.js"
+  memory_size   = 1024                      # <<<<< Try changing this to 512 to compare costs
+
+  tags = {
+    Environment = "Prod"
+    Service = "api"
+  }
+}
