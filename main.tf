@@ -41,3 +41,6 @@ resource "aws_lambda_function" "hello_world" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "logs" {
+  name = "logs"
+}
