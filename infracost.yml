@@ -2,6 +2,7 @@ version: 0.1
 projects:
   - path: .
     name: aws
+    usage_file: infracost-usage.yml
 
   - path: google
     name: google
