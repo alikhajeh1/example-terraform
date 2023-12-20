@@ -35,6 +35,7 @@ resource "azurerm_linux_virtual_machine" "my_vm" {
 }
 
 resource "azurerm_app_service_plan" "elastic" {
+count=2
   name                = "api-appserviceplan-pro"
   location            = "eastus"
   resource_group_name = "fake_resource_group"
@@ -44,7 +45,7 @@ resource "azurerm_app_service_plan" "elastic" {
   sku {
     tier     = "Basic" 
     size     = "EP2" 
-    capacity = 1
+    capacity = 2
   }
 }
 
