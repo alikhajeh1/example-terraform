@@ -6,6 +6,3 @@ projects:
 
   - path: google
     name: google
-
-  - path: azure
-    name: azure
