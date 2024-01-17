@@ -37,7 +37,7 @@ resource "aws_lambda_function" "hello_world" {
 
   tags = {
     Environment = "Prod"
-    Service = "api"
+    Service = "api_"
   }
 }
 
