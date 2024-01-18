@@ -18,7 +18,7 @@ resource "aws_instance" "web_app2" {
 
 resource "aws_instance" "web_app3" {
   ami           = "ami-674cbc1e"
-  instance_type = "m3.xlarge"
+  instance_type = "m5.xlarge"
 
   tags = {
     Environment = "production"
