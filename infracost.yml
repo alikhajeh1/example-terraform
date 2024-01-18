@@ -3,6 +3,9 @@ projects:
   - path: .
     name: aws
     usage_file: infracost-usage.yml
+    exclude_paths:
+      - google
+      - azure
 
   - path: google
     name: google
