@@ -9,8 +9,8 @@ provider "aws" {
 
 resource "aws_rds_cluster" "default" {
   cluster_identifier      = "aurora-cluster-demo"
-  engine                  = "aurora-mysql"
-  engine_version          = "5.7.mysql_aurora.2.03.2"
+  engine                  = "mysql"
+  engine_version          = "5.7"
   availability_zones      = ["us-west-2a", "us-west-2b", "us-west-2c"]
   database_name           = "mydb"
   master_username         = "foo"
