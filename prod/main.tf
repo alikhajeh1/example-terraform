@@ -34,3 +34,6 @@ resource "aws_lambda_function" "my_hello_world" {
   }
 }
 
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+}
