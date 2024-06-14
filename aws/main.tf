@@ -34,3 +34,24 @@ resource "aws_lambda_function" "my_hello_world" {
   }
 }
 
+resource "aws_instance" "new_web_app" {
+  ami           = "ami-005e54dee72cc1d00"
+
+  instance_type = "m5.4xlarge"
+
+  tags = {
+    Environment = "production"
+    Service     = "web-app"
+  }
+
+  root_block_device {
+    volume_size = 100
+  }
+
+  ebs_block_device {
+    volume_size = 3000
+    volume_type = "io2"
+    iops = "20000"
+  }
+}
+
