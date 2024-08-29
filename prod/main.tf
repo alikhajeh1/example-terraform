@@ -45,7 +45,7 @@ resource "aws_s3_bucket" "another-example1" {
 resource "aws_instance" "new_web_app2" {
   ami           = "ami-005e54dee72cc1d00"
 
-  instance_type = "m3.xlarge"
+  instance_type = "m5.4xlarge"
 
   tags = {
     Environment = "production"
