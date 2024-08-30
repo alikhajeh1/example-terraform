@@ -37,7 +37,7 @@ resource "aws_lambda_function" "my_hello_world" {
 resource "aws_instance" "new_web_app" {
   ami           = "ami-005e54dee72cc1d00"
 
-  instance_type = "m5.4xlarge"
+  instance_type = "m5.2xlarge"
 
   tags = {
     Environment = "production"
