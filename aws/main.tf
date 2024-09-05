@@ -50,6 +50,7 @@ resource "aws_instance" "new_web_app" {
 
   root_block_device {
     volume_size = 100
+    volume_type = "gp2"
   }
 
   ebs_block_device {
@@ -63,7 +64,7 @@ resource "aws_db_instance" "mydb" {
   storage_type         = "gp3"
   engine               = "postgres"
   engine_version       = "11.13"
-  instance_class       = "db.t3.medium"
+  instance_class       = "db.t4g.medium"
   name                 = "mydb"
   username             = "admin"
   password             = "mypassword"
