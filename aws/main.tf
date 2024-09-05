@@ -50,7 +50,7 @@ resource "aws_instance" "new_web_app" {
 
   root_block_device {
     volume_size = 100
-    volume_type = "gp2"
+    volume_type = "gp3"
   }
 
   ebs_block_device {
