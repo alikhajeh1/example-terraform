@@ -61,13 +61,13 @@ resource "aws_instance" "new_web_app" {
 resource "aws_db_instance" "mydb" {
   allocated_storage    = 20
   storage_type         = "gp3"
-  engine               = "psql"
-  engine_version       = "11"
+  engine               = "postgres"
+  engine_version       = "11.13"
   instance_class       = "db.t3.medium"
   name                 = "mydb"
   username             = "admin"
   password             = "mypassword"
-  parameter_group_name = "default.psql.0"
+  parameter_group_name = "default.postgres11"
   multi_az             = false
   backup_retention_period = 7
   skip_final_snapshot  = true
