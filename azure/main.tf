@@ -10,7 +10,7 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
   admin_username      = "testuser"
   admin_password      = "Testpa5s"
 
-  size = "Standard_D8as_v4" # <<<<<<<<<< Try changing this to Standard_F16s_v2 to compare the costs
+  size = "Standard_F16s" # <<<<<<<<<< Try changing this to Standard_F16s_v2 to compare the costs
 
   tags = {
     Environment = "production"
@@ -70,7 +70,7 @@ resource "azurerm_linux_virtual_machine" "new_app_vm" {
   admin_username      = "testuser"
   admin_password      = "Testpa5s"
 
-  size = "Standard_F16s"
+  size = "Standard_D8as_v4"
 
   tags = {
     Environment = "production"
