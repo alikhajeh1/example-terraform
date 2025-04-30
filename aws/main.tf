@@ -10,7 +10,7 @@ resource "aws_instance" "my_web_app" {
   ami           = "ami-005e54dee72cc1d00"
 
   instance_type = "m3.xlarge" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
-
+  count=1000
   tags = {
     Environment = "production"
     Service     = "web-app"
